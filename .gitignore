@@ -1,0 +1,22 @@
+# Секреты — НИКОГДА в репо
+secrets/
+.streamlit/secrets.toml
+*.json
+!static/manifest.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
