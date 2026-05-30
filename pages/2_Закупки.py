@@ -164,7 +164,8 @@ if "Поставщик" in f.columns:
                           paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                           xaxis=dict(color="#94a3b8", gridcolor="#1e2d4a"),
                           yaxis=dict(color="#e5e7eb"), font=dict(color="#e5e7eb"))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True,
+                        config={"displayModeBar": False, "staticPlot": True})
     else:
         st.info("Нет данных по поставщикам — заполни колонку Поставщик в Закупке")
 

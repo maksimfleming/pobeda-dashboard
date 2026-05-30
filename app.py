@@ -36,9 +36,11 @@ st.markdown("""
     add('meta', {name: 'apple-mobile-web-app-title', content: 'Победа'});
     add('link', {rel: 'apple-touch-icon', sizes: '180x180', href: '/app/static/icon-180.png'});
     add('link', {rel: 'apple-touch-icon', sizes: '192x192', href: '/app/static/icon-192.png'});
-    // Viewport — масштаб 1
+    // Viewport — запрет масштабирования пальцами (pinch-zoom)
     let vp = head.querySelector('meta[name="viewport"]');
-    if (vp) vp.setAttribute('content', 'width=device-width,initial-scale=1,viewport-fit=cover');
+    const vpContent = 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover';
+    if (vp) vp.setAttribute('content', vpContent);
+    else add('meta', {name: 'viewport', content: vpContent});
 })();
 </script>
 """, unsafe_allow_html=True)
@@ -351,7 +353,8 @@ with col_stats:
             fig.update_layout(showlegend=False, margin=dict(t=10, b=10, l=10, r=10),
                               height=320, paper_bgcolor="rgba(0,0,0,0)",
                               plot_bgcolor="rgba(0,0,0,0)")
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True,
+                            config={"displayModeBar": False, "staticPlot": True})
 
     st.markdown('<div class="section-title">КУРАТОРЫ</div>', unsafe_allow_html=True)
     if not dela_df.empty and "Куратор" in dela_df.columns:
@@ -368,7 +371,8 @@ with col_stats:
                               plot_bgcolor="rgba(0,0,0,0)",
                               xaxis=dict(color="#94a3b8", gridcolor="#1e2d4a", showgrid=False),
                               yaxis=dict(color="#e5e7eb"), font=dict(color="#e5e7eb"))
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True,
+                            config={"displayModeBar": False, "staticPlot": True})
 
 st.markdown("---")
 

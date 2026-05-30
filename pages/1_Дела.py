@@ -108,7 +108,8 @@ with g1:
                               paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                               xaxis=dict(color="#9ca3af", gridcolor="#243530"),
                               yaxis=dict(color="#e5e7eb"), font=dict(color="#e5e7eb"))
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True,
+                            config={"displayModeBar": False, "staticPlot": True})
 
 with g2:
     st.markdown('<div class="section-title">ПО КУРАТОРАМ И СТАТУСАМ</div>', unsafe_allow_html=True)
@@ -131,7 +132,8 @@ with g2:
                               xaxis=dict(color="#9ca3af", gridcolor="#243530"),
                               yaxis=dict(color="#e5e7eb"), font=dict(color="#e5e7eb"),
                               legend=dict(orientation="h", y=-0.15))
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True,
+                            config={"displayModeBar": False, "staticPlot": True})
 
 st.markdown("---")
 
