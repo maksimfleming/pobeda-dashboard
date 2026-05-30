@@ -181,11 +181,9 @@ CSS = """
         /* Журнал */
         .journal-row { font-size: 12px; padding: 8px 10px; }
 
-        /* Sidebar по умолчанию свёрнут на мобиле */
+        /* Sidebar поверх контента на мобиле (открывается кнопкой ») */
         [data-testid="stSidebar"] {
-            position: absolute !important;
-            transform: translateX(-100%);
-            transition: transform 0.3s;
+            z-index: 999;
         }
     }
 
